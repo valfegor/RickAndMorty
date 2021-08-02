@@ -27,6 +27,7 @@ const getData = (url)=>{
 //dibujar cards de personajes.
 //aqui obtengo lo que saque de json.result
 const llenarDatos = (data) =>{
+    let html = "";
     
 }
 
