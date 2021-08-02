@@ -15,7 +15,7 @@ const getData = (url)=>{
     .then((response)=> response.json())
     //con el json ubico los datos que necesito
     .then((json)=>{
-        llenarDatos(json.results),paginacion(json.info),console.log(json.resu);
+        llenarDatos(json.results),paginacion(json.info),console.log(json.info);
     })
     //el error
     .catch((error)=>{
@@ -51,8 +51,20 @@ const llenarDatos = (data) =>{
 
 //paginacion.
 
-const paginacion = () => {
+const paginacion = (data) => {
+let prevDisabled = "";
+let nextDisabled = "";
+    //disabled es una propiedad de bootstrap
+    (data.prev == null)?prevDisabled="disabled":prevDisabled="";
 
+    (data.next == null)?nextDisabled="disabled":nextDisabled="";
+
+    let html = "";
+
+    html+=`<li class="page-item" ${prevDisabled} ><a class="page-link" onclick="getData('${data.prev}')">previues</a></li>`
+    html+=`<li class="page-item" ${nextDisabled} ><a class="page-link" onclick="getData('${data.next}')">Next</a></li>`
+
+    document.getElementById("paginacion").innerHTML=html;
 }
 
 
