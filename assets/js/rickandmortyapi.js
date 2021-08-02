@@ -28,7 +28,12 @@ const getData = (url)=>{
 //aqui obtengo lo que saque de json.result
 const llenarDatos = (data) =>{
     let html = "";
-    
+    //json con los personajes.
+    //en pj queda guardado cada personaje
+    data.forEach((pj) => {
+           html += '<div class="col mt-5">';
+           html += '</div>' 
+    });
 }
 
 //paginacion.
