@@ -15,7 +15,7 @@ const getData = (url)=>{
     .then((response)=> response.json())
     //con el json ubico los datos que necesito
     .then((json)=>{
-        llenarDatos(json.resuls),paginacion(json.info);
+        llenarDatos(json.results),paginacion(json.info),console.log(json.resu);
     })
     //el error
     .catch((error)=>{
@@ -31,9 +31,22 @@ const llenarDatos = (data) =>{
     //json con los personajes.
     //en pj queda guardado cada personaje
     data.forEach((pj) => {
-           html += '<div class="col mt-5">';
-           html += '</div>' 
+           html += '<div class="col mt-5 prueba">'
+           html += '<div class="card" style="width: 18rem;">';
+           html += `<img class="card-img-top" src="${pj.image}" alt="${pj.name}">`;
+           html += '<div class="card-body">';
+           html += `<h5 class="card-title">${pj.name}</h5>`
+           html += `<p class="card-text">${pj.status}</p>`
+           html += `<p class="card-text">${pj.species}</p>`
+           html += '</div>'
+           html += '</div>'
+           html += '</div>'
+           //+= es lo mismo que html + ""
+
     });
+    //el inner html.
+
+    document.getElementById("datos_personajes").innerHTML=html;
 }
 
 //paginacion.

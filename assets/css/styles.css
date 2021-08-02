@@ -20,3 +20,8 @@ Z-index para que cuando se suba o se haga scroll los cards no pasen por encima d
     margin-bottom: 60px;
     
 }
+
+.prueba{
+    display: flex;
+    flex-wrap: wrap;
+}
